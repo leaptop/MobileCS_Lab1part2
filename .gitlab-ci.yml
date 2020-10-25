@@ -1,0 +1,16 @@
+stages:
+  - build  
+  - test
+
+build_job:
+  stage: build
+  only:
+    - branches
+  script:
+    - 'cd MobileCS_Lab1part2'
+    - '"C:\gitlabRunnerAndNuget\nuget.exe" restore'
+    - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\msbuild.exe" MobileCS_Lab1part2.sln'  
+  artifacts:
+    paths:
+      - 'MobileCS_Lab1part2\MobileCS_Lab1part2\bin\Debug\MobileCS_Lab1part2.exe'
+      #
